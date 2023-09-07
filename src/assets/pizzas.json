@@ -1,0 +1,122 @@
+[
+	{
+		"id": 1,
+		"image": "assets/img/pizzas/mixic.webp",
+		"title": "Мексиканская",
+		"types": [0, 1],
+		"sizes": [26, 30, 40],
+		"price": 539,
+		"category": 0,
+		"rating": 4
+	},
+	{
+		"id": 2,
+		"image": "assets/img/pizzas/julien.webp",
+		"title": "Жюльен",
+		"types": [0, 1],
+		"sizes": [26, 30, 40],
+		"price": 489,
+		"category": 0,
+		"rating": 4
+	},
+	{
+		"id": 3,
+		"image": "assets/img/pizzas/4seasons.webp",
+		"title": "Четыре сезона",
+		"types": [0],
+		"sizes": [26, 30, 40],
+		"price": 489,
+		"category": 0,
+		"rating": 4
+	},
+	{
+		"id": 4,
+		"image": "assets/img/pizzas/4cheese.webp",
+		"title": "Сырная 🌱👶",
+		"types": [0, 1],
+		"sizes": [30, 40],
+		"price": 299,
+		"category": 0,
+		"rating": 4
+	},
+	{
+		"id": 5,
+		"image": "assets/img/pizzas/pepperoni.webp",
+		"title": "Пепперони",
+		"types": [0, 1],
+		"sizes": [26, 30, 40],
+		"price": 299,
+		"category": 0, 
+		"rating": 4
+	},
+	{
+		"id": 6,
+		"image": "assets/img/pizzas/2chicken.webp",
+		"title": "Двойной цыпленок 👶",
+		"types": [1],
+		"sizes": [26, 30],
+		"price": 389,
+		"category": 0,
+		"rating": 4
+	},
+	{
+		"id": 7,
+		"image": "assets/img/pizzas/chorizo.webp",
+		"title": "Чоризо",
+		"types": [0, 1],
+		"sizes": [26, 30, 40],
+		"price": 299,
+		"category": 0,
+		"rating": 4
+	},
+	{
+		"id": 8,
+		"image": "assets/img/pizzas/ham&cheese.webp",
+		"title": "Ветчина и сыр",
+		"types": [1],
+		"sizes": [26, 30, 40],
+		"price": 389,
+		"category": 0,
+		"rating": 4
+	},
+	{
+		"id": 9,
+		"image": "assets/img/pizzas/cheesy-chicken.webp",
+		"title": "Сырный цыпленок",
+		"types": [0, 1],
+		"sizes": [26, 40],
+		"price": 539,
+		"category": 0,
+		"rating": 4
+	},
+	{
+		"id": 10,
+		"image": "assets/img/pizzas/burger.webp",
+		"title": "Бургер-пицца",
+		"types": [1],
+		"sizes": [26, 30, 40],
+		"price": 439,
+		"category": 0,
+		"rating": 4
+	},
+	{
+		"id": 11,
+		"image": "assets/img/pizzas/meaty.webp",
+		"title": "Мясная",
+		"types": [0, 1],
+		"sizes": [26, 30, 40],
+		"price": 539,
+		"category": 0,
+		"rating": 4
+	},
+	{
+		"id": 12,
+		"image": "assets/img/pizzas/hawaiian.webp",
+		"title": "Гавайская",
+		"types": [0, 1],
+		"sizes": [26, 30, 40],
+		"price": 539,
+		"category": 0,
+		"rating": 4
+	}
+]
