@@ -20,10 +20,12 @@ const Home = () => {
 				setPizzas(data);
 				setLoading(false);
 			});
+			// If back button is pressed we will be redirected to the upper part of home page:
+			window.scrollTo(0, 0);
 	}, []);
 
 	return (
-		<>
+		<div className="container">
 			<div className="content__top">
 				<Categories />
 				<Sort />
@@ -34,7 +36,7 @@ const Home = () => {
 					? [...new Array(12)].map((_, index) => <Skeleton key={index} />)
 					: pizzas.map((pizza) => <PizzaBlock key={pizza.id} {...pizza} />)}
 			</div>
-		</>
+		</div>
 	);
 };
 
