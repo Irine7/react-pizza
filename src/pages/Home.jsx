@@ -8,10 +8,22 @@ import Skeleton from '../components/PizzaBlock/Skeleton';
 const Home = () => {
 	const [pizzas, setPizzas] = React.useState([]);
 	const [loading, setLoading] = React.useState(true);
-	const apiUrl = 'https://64f9d6b84098a7f2fc150eaf.mockapi.io/pizzas';
+	const [categoryId, setCategoryId] = React.useState(0);
+	const [sortType, setSortType] = React.useState({
+		name: 'популярности',
+		sortProperty: 'rating',
+	});
 
-	// useEffect calls API just once. [] means the component will be mounted only once
+	// useEffect calls API just once. Follow changes in [categoryId] & if it is changed API will be called again.
 	React.useEffect(() => {
+		const sortBy = sortType.sortProperty.replace('-', '');
+		const category = categoryId > 0 ? `category=${categoryId}` : '';
+		const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc';
+	
+		const apiUrl = `https://64f9d6b84098a7f2fc150eaf.mockapi.io/pizzas?${category}&sortBy=${sortBy}&order=${order}`;
+
+		setLoading(true);
+
 		fetch(apiUrl)
 			.then((res) => {
 				return res.json();
@@ -20,15 +32,18 @@ const Home = () => {
 				setPizzas(data);
 				setLoading(false);
 			});
-			// If back button is pressed we will be redirected to the upper part of home page:
-			window.scrollTo(0, 0);
-	}, []);
+		// If back button is pressed we will be redirected to the upper part of home page:
+		window.scrollTo(0, 0);
+	}, [categoryId, sortType]);
 
 	return (
 		<div className="container">
 			<div className="content__top">
-				<Categories />
-				<Sort />
+				<Categories
+					value={categoryId}
+					onChangeCategory={(i) => setCategoryId(i)}
+				/>
+				<Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
 			</div>
 			<h2 className="content__title">Все пиццы</h2>
 			<div className="content__items">

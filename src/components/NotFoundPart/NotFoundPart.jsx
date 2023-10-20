@@ -1,7 +1,6 @@
 import React from 'react';
 
 import styles from './NotFoundPart.module.scss';
-console.log(styles);
 
 const NotFoundPart = () => {
 	return (
