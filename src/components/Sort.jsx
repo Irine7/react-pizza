@@ -1,8 +1,9 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { setSortType } from '../redux/slices/filterSlice';
+import { useDispatch } from 'react-redux';
+import { setSort } from '../redux/filter/slice';
+import { initialState } from '../redux/filter/slice'; 
 
-const popup = [
+export const popup = [
 	{ name: 'популярности (DESC)', sortProperty: 'rating' },
 	{ name: 'популярности (ASC)', sortProperty: '-rating' },
 	{ name: 'цене (DESC)', sortProperty: 'price' },
@@ -11,18 +12,18 @@ const popup = [
 	{ name: 'алфавиту (ASC)', sortProperty: '-title' },
 ];
 
-function Sort() {
+export const Sort = React.memo(({ value = initialState.sort }) => {
 	const dispatch = useDispatch();
-	const sortType = useSelector((state) => state.filterSlice.sortType);
+	const sortRef = React.useRef(null);
 	const [open, setOpen] = React.useState(false); // Pop up as a toggle (show/hide which means false/true):
 
 	const onChangeSort = (obj) => {
-		dispatch(setSortType(obj)); // Transfer the sorting type to filterSlice
+		dispatch(setSort(obj)); // Transfer the sorting type to filterSlice
 		setOpen(false);
 	};
 
 	return (
-		<div className="sort">
+		<div ref={sortRef} className="sort">
 			<div className="sort__label">
 				<svg
 					width="10"
@@ -37,7 +38,7 @@ function Sort() {
 					/>
 				</svg>
 				<b>Сортировка по:</b>
-				<span onClick={() => setOpen(!open)}>{sortType.name}</span>
+				<span onClick={() => setOpen(!open)}>{value.name}</span>
 			</div>
 			{open && (
 				<div className="sort__popup">
@@ -45,11 +46,8 @@ function Sort() {
 						{popup.map((obj, index) => (
 							<li
 								key={index}
-								className={
-									sortType.sortProperty === obj.sortProperty ? 'active' : ''
-								}
-								onClick={() => onChangeSort(obj)}
-							>
+								className={value.sortProperty === obj.sortProperty ? 'active' : ''}
+								onClick={() => onChangeSort(obj)}>
 								{obj.name}
 							</li>
 						))}
@@ -58,6 +56,4 @@ function Sort() {
 			)}
 		</div>
 	);
-}
-
-export default Sort;
+});
