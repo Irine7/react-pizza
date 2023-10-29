@@ -12,7 +12,8 @@ export const popup = [
 	{ name: 'алфавиту (ASC)', sortProperty: '-title' },
 ];
 
-export const Sort = React.memo(({ value = initialState.sort }) => {
+export const Sort = React.memo(({ value }) => {
+console.log(value);
 	const dispatch = useDispatch();
 	const sortRef = React.useRef(null);
 	const [open, setOpen] = React.useState(false); // Pop up as a toggle (show/hide which means false/true):
